@@ -36,3 +36,12 @@ addUsersRelGroups = () => {
 ```
 
 As you can see i call 2 different function in 2 different cases.
+
+
+### Tip3
+
+To remove [] from an array =>>>  ["100", "102"]   =>>> "100", "102"
+
+```
+array.toString()
+```
