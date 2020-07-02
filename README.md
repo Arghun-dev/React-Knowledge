@@ -4,7 +4,7 @@
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
 
-```
+```js
 this.setState({
   name: '',
   password: ''
