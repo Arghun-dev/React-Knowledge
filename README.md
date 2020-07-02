@@ -74,4 +74,23 @@ export const groupRelMenuInsert = (groupID, menuIDs, token) => dispatch => {
 }
 ```
 
+And also, you have to initialize the initialState as an empty array just like this:
+
+```
+import { GROUP_REL_MENU_INSERT } from '../../../../actions/dashboard/types';
+
+const initialState = []
+
+export const groupRelMenuInsert = (state = initialState, action) => {
+    switch (action.type) {
+        case GROUP_REL_MENU_INSERT:
+            return {
+                ...state,
+                ...action.payload
+            }
+        default: return state
+    }
+}
+```
+
 By doing this you have a reducer just like an array which the second parameter of the array is the data which you've sent, in this case is menuIDs.
