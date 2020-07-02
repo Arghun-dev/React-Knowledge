@@ -16,7 +16,7 @@ this.setState({
 
 In some Case You want to call a different action depending on different condition. Actually You want to have one onClick event with 2 different functions: Do this:
 
-```
+```js
 addGroupsRelUsers = () => {
         const selectedArrayToString = this.state.selected.toString()
         this.props.groupsRelUsersInsert(this.props.groupId, selectedArrayToString, this.props.token)
@@ -42,7 +42,7 @@ As you can see i call 2 different function in 2 different cases.
 
 To remove [] from an array =>>>  ["100", "102"]   =>>> "100", "102"
 
-```
+```js
 array.toString()
 ```
 
@@ -51,7 +51,7 @@ array.toString()
 
 Any time you want to send data which you have sent as payload in addition to res.data you have to go send data in payload just like this:
 
-```
+```js
 export const groupRelMenuInsert = (groupID, menuIDs, token) => dispatch => {
     const config = {
         headers: {
@@ -76,7 +76,7 @@ export const groupRelMenuInsert = (groupID, menuIDs, token) => dispatch => {
 
 And also, you have to initialize the initialState as an empty array just like this:
 
-```
+```js
 import { GROUP_REL_MENU_INSERT } from '../../../../actions/dashboard/types';
 
 const initialState = []
