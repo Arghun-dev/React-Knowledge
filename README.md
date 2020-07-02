@@ -45,3 +45,33 @@ To remove [] from an array =>>>  ["100", "102"]   =>>> "100", "102"
 ```
 array.toString()
 ```
+
+
+### Tip4
+
+Any time you want to send data which you have sent as payload in addition to res.data you have to go send data in payload just like this:
+
+```
+export const groupRelMenuInsert = (groupID, menuIDs, token) => dispatch => {
+    const config = {
+        headers: {
+            'Token': token
+        }
+    }
+
+    const body = { groupID, menuIDs }
+
+    axios.post(`${API_BASE_ADDRESS}Groups/GroupsRelMenu_Insert`, body, config)
+        .then(res => {
+            dispatch({
+                type: GROUP_REL_MENU_INSERT,
+                payload: [res.data, { menuIDs }]
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+```
+
+By doing this you have a reducer just like an array which the second parameter of the array is the data which you've sent, in this case is menuIDs.
