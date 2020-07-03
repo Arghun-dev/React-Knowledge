@@ -94,3 +94,18 @@ export const groupRelMenuInsert = (state = initialState, action) => {
 ```
 
 By doing this you have a reducer just like an array which the second parameter of the array is the data which you've sent, in this case is menuIDs.
+
+
+### Tip 5
+
+To split a string by comma and setState to an array use this method:
+
+```js
+const string = 'arghun, sahand, shahla';
+
+const seperateByComma = string.split(',');
+
+console.log(seperateByComma);
+
+["arghun", " sahand", " shahla"]
+```
