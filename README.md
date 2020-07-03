@@ -162,3 +162,21 @@ MyArray:
 2: {MenuID: 100400, Access: "d"}
 3: {MenuID: 101000, Access: "e"}
 ```
+
+### Tip 7
+
+Always in onClick function if you want to run a specific function do it just like this:
+
+```js
+function = () => {
+  // Do Something
+}
+```
+
+```js
+onClick={this.function}    // Correct
+```
+
+```js
+onClick={() => this.function}    // InCorrect
+```
