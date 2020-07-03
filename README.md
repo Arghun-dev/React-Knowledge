@@ -180,3 +180,26 @@ onClick={this.function}    // Correct
 ```js
 onClick={() => this.function}    // InCorrect
 ```
+
+
+### Tip 8
+
+To handle Checkbox States in Javascript if it is checked or not and update the state based on that checked state Do this method in componentDidUpdate:
+
+```js
+if (this.state.createCheckbox === true) {
+            if (this.state.GroupRelMenuAccess_Set_StateUpdated === false) {
+                this.setState({
+                    GroupRelMenuAccess_Set_State: [this.state.GroupRelMenuId, 'c'],
+                    GroupRelMenuAccess_Set_StateUpdated: true
+                })
+            }
+        } else if (this.state.createCheckbox === false) {
+            if (this.state.GroupRelMenuAccess_Set_StateUpdated === true) {
+                this.setState({
+                    GroupRelMenuAccess_Set_State: [null, null],
+                    GroupRelMenuAccess_Set_StateUpdated: false
+                })
+            }
+        }
+```
