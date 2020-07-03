@@ -109,3 +109,56 @@ console.log(seperateByComma);
 
 ["arghun", " sahand", " shahla"]
 ```
+
+### Tip 6
+
+to sort an array of objects according to some specific element:
+
+for example to sort an array of objects according to the MenuID:
+
+```js
+const MyArray = [{MenuID: 100200, Access: "c"}, {MenuID: 100400, Access: "d"}, {MenuID: 100200, Access: "e"}, {MenuID: 101000, Access: "e"}];
+```
+
+Use this function first: (compareValues)
+
+```js
+function compareValues(key, order = 'asc') {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+
+    const varA = (typeof a[key] === 'string')
+      ? a[key].toUpperCase() : a[key];
+    const varB = (typeof b[key] === 'string')
+      ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return (
+      (order === 'desc') ? (comparison * -1) : comparison
+    );
+  };
+}
+```
+
+and then 
+
+```js
+MyArray.sort(compareValues('MenuID'));
+```
+
+MyArray:
+
+```js
+0: {MenuID: 100200, Access: "c"}
+1: {MenuID: 100200, Access: "e"}
+2: {MenuID: 100400, Access: "d"}
+3: {MenuID: 101000, Access: "e"}
+```
