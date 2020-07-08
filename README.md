@@ -203,3 +203,75 @@ if (this.state.createCheckbox === true) {
             }
         }
 ```
+
+### Tip 9
+
+Always in redux when you do CRUD works you have to call the getData as quickly as possible to update the page.
+
+And to do that you have to write these actions reducers in the same place as getData reducer just like this. And if you want to get MsgId of the action you have to write another reducer to get those data.
+
+Example:
+
+For example I have a list of users and I am doing CRUD applications on them.
+
+This is the Reducer format of users.js
+
+```js
+import {
+    GET_USERS_LIST_REQUEST,
+    GET_USERS_LIST_SUCCESS,
+    GET_USERS_LIST_FAILURE,
+    DELETE_USER,
+    ADD_USER,
+    EDIT_USER
+} from '../../../../actions/dashboard/types';
+
+const initialState = {
+    users: null,
+    loading: false,
+    error: ''
+}
+
+export const users = (state = initialState, action) => {
+    switch (action.type) {
+        case GET_USERS_LIST_REQUEST:
+            return {
+                loading: true
+            }
+            break;
+        case GET_USERS_LIST_SUCCESS:
+            return {
+                loading: false,
+                users: action.payload
+            }
+            break;
+        case GET_USERS_LIST_FAILURE:
+            return {
+                loading: false,
+                error: action.payload
+            }
+            break;
+        case DELETE_USER: {
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
+        case ADD_USER: {
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
+        case EDIT_USER: {
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
+        default: return state
+    }
+}
+```
+
+As you can see I have written DELETE_USER, ADD_USERT and EDIT_USER action reducers inside my main Users Reducer.
