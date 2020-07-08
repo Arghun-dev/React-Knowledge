@@ -329,3 +329,29 @@ export const deleteUser = (state = initialState, action) => {
     }
 }
 ```
+
+### Tip 10
+
+in some cases you need to change the state of the parent component form child component.
+
+For example I want to change the state of the showAlert state from false to true in parent component. I want to do this when submitting the form from child component.
+
+first define a function parent component:
+
+Parent.js
+
+```js
+changeState = () => {
+  this.setState({ showAlert: true })
+}
+```
+
+then pass this function through props to your child component:
+
+Child.js
+
+```js
+handleSubmit = () => {
+  this.props.changeState()
+}
+```
