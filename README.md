@@ -275,3 +275,57 @@ export const users = (state = initialState, action) => {
 ```
 
 As you can see I have written DELETE_USER, ADD_USERT and EDIT_USER action reducers inside my main Users Reducer.
+
+
+And then to use the MsgId return from the CRUD actions you have to define another reducers for all of them:
+
+addUser.js (reducer)
+
+```js
+import {
+    ADD_USER
+} from '../../../../actions/dashboard/types';
+
+const initialState = null;
+
+export const addUser = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_USER: return action.payload
+        default: return state
+    }
+}
+```
+
+editUser.js (reducer)
+
+```js
+import {
+    EDIT_USER
+} from '../../../../actions/dashboard/types';
+
+const initialState = null
+
+export const editUser = (state = initialState, action) => {
+    switch (action.type) {
+        case EDIT_USER: return action.payload
+        default: return state
+    }
+}
+```
+
+deleteUser.js (reducer)
+
+```js
+import {
+    DELETE_USER
+} from '../../../../actions/dashboard/types';
+
+const initialState = null;
+
+export const deleteUser = (state = initialState, action) => {
+    switch (action.type) {
+        case DELETE_USER: return action.payload
+        default: return state
+    }
+}
+```
