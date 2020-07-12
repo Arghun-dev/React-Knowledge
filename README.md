@@ -355,3 +355,13 @@ handleSubmit = () => {
   this.props.changeState()
 }
 ```
+
+### Tip 11
+
+in some cases you need to run several actions in one onClick. Do this:
+
+```js
+onClose={() => this.props.closeModal() || this.setState({ userModalUpdated: false, groupRelMenuUpdated: false, userRelMenuUpdated: false })}
+```
+
+Here I closeModal and setState userModalUpdated, groupRelMenuUpdated and userRelMenuUpdated back to false. in one `onClick`
