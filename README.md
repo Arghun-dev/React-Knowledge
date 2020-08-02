@@ -11,6 +11,12 @@
 ##### قالب سوم
 ![Screenshot (27)](https://user-images.githubusercontent.com/53907570/89124514-ddfdf580-d4ec-11ea-8c0d-eaa798972d02.png)
 
+##### قالب چهارم
+`manifest.json`
+
+![Screenshot (28)](https://user-images.githubusercontent.com/53907570/89124569-4e0c7b80-d4ed-11ea-8df7-708a8da452bf.png)
+
+
 as you can see here I just changed the body `dir='rtl'`
 ### Tip 2
 
