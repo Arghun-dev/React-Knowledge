@@ -365,3 +365,26 @@ onClose={() => this.props.closeModal() || this.setState({ userModalUpdated: fals
 ```
 
 Here I closeModal and setState userModalUpdated, groupRelMenuUpdated and userRelMenuUpdated back to false. in one `onClick`
+
+### Tip 12
+
+**Why does `CORS Error` happen?**
+
+because, when you send request from `localhost:3000` to the `WebService`, the `WebService` should allow the `localhost:3000` to send the request. whenever this error happened, you just need to talk to the backend developer to give you a `PORT NUMBER` which you can send the `Request` to the `Server`. for example the PORT 5001 is open and you can send the request. So you have to change the `PORT NUMBER` of your application inseted of the `3000`.
+
+How?
+
+Go to `package.json`:
+
+```js
+"scripts": {
+    "start": "set PORT=5001 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+ },
+```
+
+As you can see I set the `start` to PORT, 5001  by `set PORT=5001 && react-scripts start`.
+
+That's it You solved the `CORS` issue.
