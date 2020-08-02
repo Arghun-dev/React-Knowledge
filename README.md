@@ -1,6 +1,8 @@
 # React-Knowledge
 
-### Tip 1
+### Tip 1 (ساختن قالب پروژه بسیار مهمه)
+
+### Tip 2
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
 
@@ -12,7 +14,7 @@ this.setState({
 ```
 
 
-### Tip 2 (Calling 2 different actions from the same onClick event)
+### Tip 3 (Calling 2 different actions from the same onClick event)
 
 In some Case You want to call a different action depending on different condition. Actually You want to have one onClick event with 2 different functions: Do this:
 
@@ -38,7 +40,7 @@ addUsersRelGroups = () => {
 As you can see i call 2 different function in 2 different cases.
 
 
-### Tip3
+### Tip 4
 
 To remove [] from an array =>>>  ["100", "102"]   =>>> "100", "102"
 
@@ -47,7 +49,7 @@ array.toString()
 ```
 
 
-### Tip4
+### Tip 5
 
 Any time you want to send data which you have sent as payload in addition to res.data you have to go send data in payload just like this:
 
@@ -96,7 +98,7 @@ export const groupRelMenuInsert = (state = initialState, action) => {
 By doing this you have a reducer just like an array which the second parameter of the array is the data which you've sent, in this case is menuIDs.
 
 
-### Tip 5
+### Tip 6
 
 To split a string by comma and setState to an array use this method:
 
@@ -110,7 +112,7 @@ console.log(seperateByComma);
 ["arghun", " sahand", " shahla"]
 ```
 
-### Tip 6
+### Tip 7
 
 to sort an array of objects according to some specific element:
 
@@ -163,7 +165,7 @@ MyArray:
 3: {MenuID: 101000, Access: "e"}
 ```
 
-### Tip 7
+### Tip 8
 
 Always in onClick function if you want to run a specific function do it just like this:
 
@@ -182,7 +184,7 @@ onClick={() => this.function}    // InCorrect
 ```
 
 
-### Tip 8
+### Tip 9
 
 To handle Checkbox States in Javascript if it is checked or not and update the state based on that checked state Do this method in componentDidUpdate:
 
@@ -204,7 +206,7 @@ if (this.state.createCheckbox === true) {
         }
 ```
 
-### Tip 9
+### Tip 10
 
 Always in redux when you do CRUD works you have to call the getData as quickly as possible to update the page.
 
@@ -330,7 +332,7 @@ export const deleteUser = (state = initialState, action) => {
 }
 ```
 
-### Tip 10
+### Tip 11
 
 in some cases you need to change the state of the parent component form child component.
 
@@ -356,7 +358,7 @@ handleSubmit = () => {
 }
 ```
 
-### Tip 11
+### Tip 12
 
 in some cases you need to run several actions in one onClick. Do this:
 
@@ -366,7 +368,7 @@ onClose={() => this.props.closeModal() || this.setState({ userModalUpdated: fals
 
 Here I closeModal and setState userModalUpdated, groupRelMenuUpdated and userRelMenuUpdated back to false. in one `onClick`
 
-### Tip 12
+### Tip 13
 
 **Why does `CORS Error` happen?**
 
