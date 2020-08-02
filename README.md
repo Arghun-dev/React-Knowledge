@@ -154,8 +154,10 @@ yarn-error.log*
     "eslint-plugin-react-hooks": "^2.5.0"
   }
 }
-
 ```
+
+#### Now the most important section `src` folder
+
 ### Tip 2
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
