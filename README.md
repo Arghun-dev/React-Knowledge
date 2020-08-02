@@ -8,6 +8,10 @@
 ##### قالب دوم
 ![Screenshot (26)](https://user-images.githubusercontent.com/53907570/89124380-c6723d00-d4eb-11ea-8ab7-0f720862ea88.png)
 
+##### قالب سوم
+![Screenshot (27)](https://user-images.githubusercontent.com/53907570/89124514-ddfdf580-d4ec-11ea-8c0d-eaa798972d02.png)
+
+as you can see here I just changed the body `dir='rtl'`
 ### Tip 2
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
