@@ -1,8 +1,7 @@
 # React-Knowledge
 
-به بخش wiki مراجعه کن
-
 ### Tip 1 (ساختن قالب پروژه بسیار مهمه)
+![Screenshot (25)](https://user-images.githubusercontent.com/53907570/89124336-7dba8400-d4eb-11ea-9809-00d06072d154.png)
 
 ### Tip 2
 
