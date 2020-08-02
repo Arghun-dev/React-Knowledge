@@ -10,12 +10,11 @@
 
 ##### قالب سوم
 `index.html`
-
 ![Screenshot (27)](https://user-images.githubusercontent.com/53907570/89124514-ddfdf580-d4ec-11ea-8c0d-eaa798972d02.png)
+as you can see here I just changed the body `dir='rtl'`
 
 ##### قالب چهارم
 `manifest.json`
-
 ![Screenshot (28)](https://user-images.githubusercontent.com/53907570/89124569-4e0c7b80-d4ed-11ea-8df7-708a8da452bf.png)
 
 #### eslint.rc
@@ -157,8 +156,6 @@ yarn-error.log*
 }
 
 ```
-
-as you can see here I just changed the body `dir='rtl'`
 ### Tip 2
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
