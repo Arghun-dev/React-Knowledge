@@ -5,6 +5,9 @@
 ##### قالب اول
 ![Screenshot (25)](https://user-images.githubusercontent.com/53907570/89124336-7dba8400-d4eb-11ea-9809-00d06072d154.png)
 
+##### قالب دوم
+![Screenshot (26)](https://user-images.githubusercontent.com/53907570/89124380-c6723d00-d4eb-11ea-8ab7-0f720862ea88.png)
+
 ### Tip 2
 
 Always remember when submitting a form to set the input states back to null, always setState the inputs to empty string.
