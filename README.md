@@ -546,3 +546,20 @@ Go to `package.json`:
 As you can see I set the `start` to PORT, 5001  by `set PORT=5001 && react-scripts start`.
 
 That's it You solved the `CORS` issue.
+
+
+### Tip 14
+
+always to render the `key` of an object dynamically, you have to put the variable inside `[]`
+
+example:
+
+```js
+{
+  [head1Field]: '14',
+  [head2Field]: 'گروه دوم',
+  rowNumber: 2
+},
+```
+
+**as you can see I have put the `head1Field` and `head2Field` dynamically from props**
