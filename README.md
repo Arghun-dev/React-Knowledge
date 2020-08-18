@@ -563,3 +563,22 @@ example:
 ```
 
 **as you can see I have put the `head1Field` and `head2Field` dynamically from props**
+
+
+### Tip 15
+
+always remember when you assign default state, **Don't** set it to **null**, if you have a string, set to **empty string**, or if you have an array of lists, set it to **empty array**
+
+INCORRECT:
+```js
+const state = {
+  visitors: null
+}
+```
+
+CORRECT:
+```js
+const state = {
+  visitors: []
+}
+```
