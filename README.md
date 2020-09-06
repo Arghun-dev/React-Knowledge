@@ -589,7 +589,8 @@ Imagine You want to operate several `functions` inside one onChange and also you
 
 example: I have a `Input.Search` tag which users types something in it and the `search` input has a `search icon button` which we want to show different content to the user, according to the condition and `state` which we `setState` inside `onSearch` of the input tag
 
-**we want to show different content to the user depending on the state of the `genericCodeFound`**
+**We want to show different content to the user depending on the state of the `genericCodeFound`**
+
 **Notice that `onSearch` will be called after user `clicked` on `search` icon**
 
 ```js
