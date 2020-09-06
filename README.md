@@ -582,3 +582,38 @@ const state = {
   visitors: []
 }
 ```
+
+### Tip 16
+
+Imagine You want to operate several `functions` inside one onChange and also you want to `map` through an `array` and also you want to `setState` depending on a condition which occurs during `map`
+
+example: I have a `Input.Search` tag which users types something in it and the `search` input has a `search icon button` which we want to show different content to the user, according to the condition and `state` which we `setState` inside `onSearch` of the input tag
+
+**we want to show different content to the user depending on the state of the `genericCodeFound`**
+**Notice that `onSearch` will be called after user `clicked` on `search` icon**
+
+```js
+const [genericCodeFound, setGenericCodeFound] = useState(null)
+const [genericCodeSearchLoading, setGenericCodeSearchLoading] = useState(false)
+
+<Input.Search
+  enterButton
+  type="text"
+  value={genericCode}
+  onChange={(e) => setGenericCode(e.target.value)}
+  placeholder="کد ژنریک"
+  loading={genericCodeSearchLoading}
+  onSearch={() => {
+    setGenericCodeSearchLoading(true)
+    genericCodes.map((item) => {
+      if (item.genericCode === genericCode) {
+        return setGenericCodeFound(true)
+      }
+      return setGenericCodeFound(false)
+    })
+    setTimeout(() => {
+      setGenericCodeSearchLoading(false)
+    }, 2000)
+  }}
+/>
+```
