@@ -639,11 +639,9 @@ axios
     }
   })
   .catch((err) => {
-    if (err.response.status === 400) {
-      EventDispatch({
-        type: ERROR,
-        message: err.response.data.errors[0].error
-      })
-    }
+    EventDispatch({
+      type: ERROR,
+      message: err.response.data.errors[0].error
+    })
   })
 ```
