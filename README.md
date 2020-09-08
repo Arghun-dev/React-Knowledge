@@ -618,3 +618,30 @@ const [genericCodeSearchLoading, setGenericCodeSearchLoading] = useState(false)
   }}
 />
 ```
+
+### Tip 17
+
+**The correct way of using `.then` and `.catch` in `axios` to use the correct `status` and `message` got from `backend`**
+
+```js
+axios
+  .delete(
+    `${API.PRODUCT_CATEGORY_DELETE}/${oldData.categoryId}`,
+    config,
+    data
+  )
+  .then((res) => {
+    if (res.status === 200 || res.status === 204) {
+      productCategoryDispatch({ type: DELETE_PRODUCT_CATEGORY })
+      EventDispatch({ type: SUCCESS, message: 'رکورد با موفقیت حذف شد' })
+    }
+  })
+  .catch((err) => {
+    if (err.response.status === 400) {
+      EventDispatch({
+        type: ERROR,
+        message: err.response.data.errors[0].error
+      })
+    }
+  })
+```
