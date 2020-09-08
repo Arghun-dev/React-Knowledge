@@ -623,6 +623,8 @@ const [genericCodeSearchLoading, setGenericCodeSearchLoading] = useState(false)
 
 **The correct way of using `.then` and `.catch` in `axios` to use the correct `status` and `message` got from `backend`**
 
+**The important thing here is that you have to remember handle `error` inside `.catch` and use `err.response` not just `err`**
+
 ```js
 axios
   .delete(
