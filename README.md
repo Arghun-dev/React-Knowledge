@@ -645,3 +645,22 @@ axios
     })
   })
 ```
+
+### Tip 18
+
+**always remember when you use `modal` in your component, absolutely the modal has a parameter called `open or visible` and you use that to show or not show the modal, `But` another thing you have to notice is that you also have to specify a `conditional statement` for `render or not render` the modal**
+
+`why we do this?`
+
+because if you don't do this, the content of the modal will be rendered in the first time you render the page, `this is not good`, we only want to render the content of the modal, when the modal is being rendering.
+
+So: Do this
+
+```js
+{openModal ?
+<Modal
+  openModal={openModal}
+/>
+: null
+}
+```
