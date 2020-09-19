@@ -674,40 +674,40 @@ So: Do this
 const [loading, setLoading] = useState(false)
 
 const onScroll = (event) => {
-  const target = event.target
-  const scrollTop = target.scrollTop
-  const offsetHeight = target.offsetHeight
-  const scrollHeight = target.scrollHeight
-  if (scrollTop + offsetHeight === scrollHeight) {
-    setLoading(true)
-    target.scrollTo(0, target.scrollHeight)
-    setPageNumber((pageNumber) => pageNumber + 1)
-    const config = {
-      headers: {
-        Authorization: `bearer ${token}`
-      }
-    }
-    setTimeout(() => {
-      const loadMoreProducts = async () => {
-        try {
-          const response = await axios.get(
-            `${API.PRODUCT_GET}?PageNumber=${pageNumber}`,
-            config
-          )
-          setProducts(response.data.lists)
-          setLoading(false)
-        } catch (err) {
-          EventDispatch({
-            type: ERROR,
-            message: err.response.data.errors[0].error
-          })
+    const target = event.target
+    const scrollTop = target.scrollTop
+    const offsetHeight = target.offsetHeight
+    const scrollHeight = target.scrollHeight
+    if (scrollTop + offsetHeight === scrollHeight) {
+      setLoading(true)
+      target.scrollTo(0, target.scrollHeight)
+      setPageNumber((pageNumber) => pageNumber + 1)
+      const config = {
+        headers: {
+          Authorization: `bearer ${token}`
         }
       }
+      setTimeout(() => {
+        const loadMoreProducts = async () => {
+          try {
+            const response = await axios.get(
+              `${API.PRODUCT_GET}?PageNumber=${pageNumber}`,
+              config
+            )
+            response.data.lists.forEach((item) => products.push(item))
+            setLoading(false)
+          } catch (err) {
+            EventDispatch({
+              type: ERROR,
+              message: err.response.data.errors[0].error
+            })
+          }
+        }
 
-      loadMoreProducts()
-    }, 500)
+        loadMoreProducts()
+      }, 500)
+    }
   }
-}
   
   
   <Select
