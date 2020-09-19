@@ -664,3 +664,77 @@ So: Do this
 : null
 }
 ```
+
+
+### Tip 19 (DropDown Pagination)
+
+**here I created a dropdown select of antd using `pagination` to load more data**
+
+```js
+const [loading, setLoading] = useState(false)
+
+const onScroll = (event) => {
+  const target = event.target
+  const scrollTop = target.scrollTop
+  const offsetHeight = target.offsetHeight
+  const scrollHeight = target.scrollHeight
+  if (scrollTop + offsetHeight === scrollHeight) {
+    setLoading(true)
+    target.scrollTo(0, target.scrollHeight)
+    setPageNumber((pageNumber) => pageNumber + 1)
+    const config = {
+      headers: {
+        Authorization: `bearer ${token}`
+      }
+    }
+    setTimeout(() => {
+      const loadMoreProducts = async () => {
+        try {
+          const response = await axios.get(
+            `${API.PRODUCT_GET}?PageNumber=${pageNumber}`,
+            config
+          )
+          setProducts(response.data.lists)
+          setLoading(false)
+        } catch (err) {
+          EventDispatch({
+            type: ERROR,
+            message: err.response.data.errors[0].error
+          })
+        }
+      }
+
+      loadMoreProducts()
+    }, 500)
+  }
+}
+  
+  
+  <Select
+    virtual
+    showSearch
+    className={classes.input}
+    placeholder="کالا"
+    optionFilterProp="children"
+    allowClear
+    filterOption={(input, option) =>
+      option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+      0
+    }
+    getPopupContainer={(trigger) => trigger.parentNode}
+    notFoundContent="داده ای یافت نشد"
+    value={productId}
+    onChange={(val) => setProductId(val)}
+    onPopupScroll={onScroll}
+  >
+    {loading ? (
+      <Option>Loading...</Option>
+    ) : (
+      products.map((product) => (
+        <Option value={product.productId}>
+          {product.productName}
+        </Option>
+      ))
+    )}
+  </Select>
+```
