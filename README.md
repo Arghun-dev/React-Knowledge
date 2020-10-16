@@ -738,3 +738,10 @@ const onScroll = (event) => {
     )}
   </Select>
 ```
+
+
+### add remote url
+
+`git remote add NameOfRepo HTTPS`
+
+`git remote add Custom-Fetch-Hook-With-React-Hooks 'https://github.com/Arghun-dev/Custom-Fetch-Hook-with-React-Hooks.git'`
