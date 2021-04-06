@@ -745,3 +745,17 @@ const onScroll = (event) => {
 `git remote add NameOfRepo HTTPS`
 
 `git remote add Custom-Fetch-Hook-With-React-Hooks 'https://github.com/Arghun-dev/Custom-Fetch-Hook-with-React-Hooks.git'`
+
+
+# JavaScript: How can I change property names of objects in an array?
+
+use `map` method
+
+for example in here, I'm going to change the property names of the objects in an array from `name` to `label` and from `id` to `value`.
+
+```js
+tags.map((item) => ({ label: item.name, value: item.id }));
+```
+
+```js
+```
