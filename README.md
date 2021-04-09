@@ -759,3 +759,15 @@ tags.map((item) => ({ label: item.name, value: item.id }));
 
 ```js
 ```
+
+# text-overflow: 'ellipsis'
+
+To make some `text-overflow` ellipsis, write this code below:
+
+```js
+.text {
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+```
