@@ -771,3 +771,8 @@ To make some `text-overflow` ellipsis, write this code below:
    text-overflow: ellipsis;
 }
 ```
+
+
+# Access origin URL in React
+
+`$. window.location.origin`
