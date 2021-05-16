@@ -832,28 +832,24 @@ console.log(!!newName); // false
 
 **The following values are considered by JavaScript to be `falseys`**
 
-`
-Empty string: ""
+`Empty string: ""`
 
-0
+`0`
 
-null
+`null`
 
-undefined
+`undefined`
 
-NaN
-`
+`NaN`
 
 **The following values are considered by JavaScript to be `truthys`**
 
-`
-Object: {}
+`Object: {}`
 
-Array: []
+`Array: []`
 
-Not empty string: "anything"
+`Not empty string: "anything"`
 
-Number other than zero: 3.14
+`Number other than zero: 3.14`
 
-Date: new Date()
-`
+`Date: new Date()`
