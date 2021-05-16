@@ -776,3 +776,16 @@ To make some `text-overflow` ellipsis, write this code below:
 # Access origin URL in React
 
 `$. window.location.origin`
+
+
+# double exclamation mark meaning in JS
+
+it's short way to cast a variable to be a boolean (true or false) value.
+
+```js
+const name = 'arghun';
+console.log(!!name); // true
+
+const newName = '';
+console.log(!!newName); // false
+```
