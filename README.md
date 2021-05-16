@@ -853,3 +853,9 @@ console.log(!!newName); // false
 `Number other than zero: 3.14`
 
 `Date: new Date()`
+
+### So, why double exclamation marks?
+
+In some cases you may want to cast a variable to be explicitly boolean. Why? Well, the number one reason is that most of time developers do not use type safe comparison operators.
+
+When using the type safe comparison operators you are both checking that the values are equal (or unequal) and that their type is the same. Without the type safe comparison operators you are allowing the JavaScript engine the freedom to coerce your variables to true or false based on the truthy/falsey logic.
