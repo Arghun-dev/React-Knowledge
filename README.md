@@ -834,9 +834,13 @@ console.log(!!newName); // false
 
 `
 Empty string: ""
+
 0
+
 null
+
 undefined
+
 NaN
 `
 
@@ -844,8 +848,12 @@ NaN
 
 `
 Object: {}
+
 Array: []
+
 Not empty string: "anything"
+
 Number other than zero: 3.14
+
 Date: new Date()
 `
