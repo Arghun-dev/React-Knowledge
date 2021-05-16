@@ -859,3 +859,42 @@ console.log(!!newName); // false
 In some cases you may want to cast a variable to be explicitly boolean. Why? Well, the number one reason is that most of time developers do not use type safe comparison operators.
 
 When using the type safe comparison operators you are both checking that the values are equal (or unequal) and that their type is the same. Without the type safe comparison operators you are allowing the JavaScript engine the freedom to coerce your variables to true or false based on the truthy/falsey logic.
+
+
+# URI, encodeURIComponent(), decodeURIComponent()
+
+**URI**
+
+A URI (Uniform Resource Identifier) is a string that refers to a resource. The most common are URLs, which identify the resource by giving its location on the Web. URNs, by contrast, refer to a resource by a name, in a given namespace, such as the ISBN of a book.
+
+### encodeURIComponent()
+
+The encodeURIComponent() function encodes a URI by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two "surrogate" characters).
+
+```js
+// encodes characters such as ?,=,/,&,:
+console.log(`?x=${encodeURIComponent('test?')}`);
+// expected output: "?x=test%3F"
+
+console.log(`?x=${encodeURIComponent('шеллы')}`);
+// expected output: "?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"
+```
+
+**Syntax**
+
+```js
+encodeURIComponent(str);
+```
+
+Paramaters:
+
+`str`
+
+Return Value:
+
+A new string representing the provided string encoded as a URI component.
+
+
+### decodeURIComponent()
+
+The `decodeURIComponent()` function decodes a Uniform Resource Identifier (URI) component previously created by `encodeURIComponent` or by a similar routine.
