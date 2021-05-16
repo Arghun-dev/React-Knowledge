@@ -782,6 +782,46 @@ To make some `text-overflow` ellipsis, write this code below:
 
 it's short way to cast a variable to be a boolean (true or false) value.
 
+JavaScript is not a static language, rather it is a dynamic language. That means that a variable can reference or hold a value of any type, and further, that type can be changed at any point. Whether you prefer a static or dynamic language is for you to decide.
+
+But, we can certainly have a notion of a type in JavaScript. Here is a quick list of the various data types in JavaScript:
+
+1. Boolean
+2. String
+3. Number
+4. Object
+
+A boolean data type is the simplest of all data types as it is a simple bit value: 0 (false) or 1 (true).
+
+We can set a variable to a boolean value and use it when evaluating an if-statement. Here's our simply example.
+
+```js
+function() {
+  var thisIsTrue = true;
+  if (thisIsTrue) {
+    window.alert('It certainly is!');
+  }
+}
+```
+
+When the function above is executed we will get the alert It certainly is! because the variable thisIsTrue is being set to the boolean value of true.
+
+
+Now, let's look at how JavaScript can evaluate a value that is not a boolean to be casted to a boolean.
+
+```js
+function() {
+  var nothing = '';
+  if (nothing) {
+    window.alert('Nothing');
+  } else {
+    window.alert('Huh?');
+  }
+}
+```
+
+When the function above is executed we will get the alert `Huh`? because the value of the variable `nothing` is being evaluated to be `false`. This is what is commonly referred to as `truthy` versus `falsey`.
+
 ```js
 const name = 'arghun';
 console.log(!!name); // true
@@ -789,3 +829,23 @@ console.log(!!name); // true
 const newName = '';
 console.log(!!newName); // false
 ```
+
+**The following values are considered by JavaScript to be `falseys`**
+
+`
+Empty string: ""
+0
+null
+undefined
+NaN
+`
+
+**The following values are considered by JavaScript to be `truthys`**
+
+`
+Object: {}
+Array: []
+Not empty string: "anything"
+Number other than zero: 3.14
+Date: new Date()
+`
