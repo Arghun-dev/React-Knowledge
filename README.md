@@ -898,3 +898,69 @@ A new string representing the provided string encoded as a URI component.
 ### decodeURIComponent()
 
 The `decodeURIComponent()` function decodes a Uniform Resource Identifier (URI) component previously created by `encodeURIComponent` or by a similar routine.
+
+
+# what is async and sync javascript ?
+
+**synchronous:** So to recap, `synchronous` code is executed in sequense - each statement waits for the previous statement to finish before executing.
+
+**Asynchronous:** Asynchronous code doesn't have to wait your program can continue to run. You do this to keep your site or app responsive, reducing waiting time for the user.
+
+## What does `Async` mean ?
+
+Async is short for “asynchronous”. It’s easier to understand async if you first understand what “synchronous”, the opposite, means.
+
+In programming, we can simplify the definition of synchronous code as “a bunch of statements in sequence”; so each statement in your code is executed one after the other. This means each statement has to wait for the previous one to finish executing.
+
+```js
+console.log('First');
+console.log('Second');
+console.log('Third');
+```
+
+The statements above will execute in order, outputting “First”, “Second”, “Third” to the console. That’s because it’s written synchronously.
+
+Asynchronous code takes statements outside of the main program flow, allowing the code after the asynchronous call to be executed immediately without waiting. You’ve probably used asynchronous programming before with jQuery.ajax or similar:
+
+```js
+console.log('First');
+jQuery.get('page.html', function (data) {
+    console.log("Second");
+});
+console.log('Third');
+```
+
+In the example above, the output will be different: “First”, “Third”, “Second”. This is because the function passed into jQuery.get is not called immediately – it has to wait for jQuery to fetch the page you asked for before it can execute.
+
+“So why the hell use asynchronous code instead of synchronous code?" I hear you ask! I’ll explain.
+
+## Why Asynchronous ?
+
+When JavaScript is executed, synchronous code has the potential to block further execution until it has finished what it’s doing. In English, long-running JavaScript functions can make the UI or server unresponsive until the function has returned. Obviously this can result in a terrible user-experience.
+
+For example: if you want to load your latest tweets onto a web page, and you do this synchronously, then a visitor to your site won’t be able to do anything until those tweets are loaded. This could cause a long delay before they even get to see the content of your site! I’ve illustrated the problem below:
+
+```js
+tweets = loadTweetsSync();
+// ... Wait
+// ... Do something with the tweets
+doSomeOtherImportantThings();
+```
+
+```js
+loadTweetsAsync(function () {
+    // ... Wait
+    // ... Do something with the tweets
+});
+doSomeOtherImportantThings();
+```
+
+In the second example, `doSomeOtherImportantThings` doesn’t have to wait for the tweets to load.
+
+## How To Program Asynchronously ?
+
+More often than not, this is done for you by browser/server APIs (XMLHttpRequest, Node fs module) or third-party libraries (jQuery.ajax). Most of the time, this is as far as you need to go – you wouldn’t asynchronize everything, as this can actually lead to less performant (and very complex) code.
+
+As a general rule of thumb, you use `asynchronous` code when performing `expensive` and `time-consuming` operations. You wouldn’t use it to change a CSS class on an element, for example.
+
+For when you need them, there are plenty of libraries which aid you in writing asynchronous code; Async.js is an excellent example.
