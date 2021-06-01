@@ -964,3 +964,14 @@ More often than not, this is done for you by browser/server APIs (XMLHttpRequest
 As a general rule of thumb, you use `asynchronous` code when performing `expensive` and `time-consuming` operations. You wouldn’t use it to change a CSS class on an element, for example.
 
 For when you need them, there are plenty of libraries which aid you in writing asynchronous code; Async.js is an excellent example.
+
+
+## How to log for example cu event of an input in react ?
+
+```js
+<input
+  value={state}
+  onChange={(e) => setState(e.target.value)}
+  onCut={console.log}
+/>
+```
