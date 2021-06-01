@@ -985,3 +985,12 @@ React already has a lot of developer conviniences build into it out of the box. 
 So how do you get the debugging conveninces then? Well if you're using parcel.js, it will compile your development server with an environment variable of `NODE_ENV=development` and then when you run `parcel build`, it will automatically change that to `NODE_ENV=production` which is how all the extra weight gets stripped out.
 
 why is it imporrtant that we debug stripe out? the dev bundle of React is quite a bit bigger and quite a bit slower than the production build. Make sure you're compiling with the correct environmental variables or your users will suffer.
+
+
+## React Strict Mode
+
+It's basically gonna throw stronger errors at you, and it's gonna enforce more opinions on you.
+
+There's bunch of methods here called like `UNSAFE_componentWillMount` and there's other kinds of things that they are deprecated, and they don't want you to use them. And `Strict Mode` basically doesn't allow you to use them.
+
+**is `stric mode` make my bundle size bigger?** The answer is no, It's just stripped out in production build.
