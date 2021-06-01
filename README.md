@@ -975,3 +975,13 @@ For when you need them, there are plenty of libraries which aid you in writing a
   onCut={console.log}
 />
 ```
+
+## React NODE_ENV=development
+
+`NODE_ENV=development`
+
+React already has a lot of developer conviniences build into it out of the box. What's better is that they are automatically stripe it out when you compile your code for production.
+
+So how do you get the debugging conveninces then? Well if you're using parcel.js, it will compile your development server with an environment variable of `NODE_ENV=development` and then when you run `parcel build`, it will automatically change that to `NODE_ENV=production` which is how all the extra weight gets stripped out.
+
+why is it imporrtant that we debug stripe out? the dev bundle of React is quite a bit bigger and quite a bit slower than the production build. Make sure you're compiling with the correct environmental variables or your users will suffer.
