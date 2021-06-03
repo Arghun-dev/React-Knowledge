@@ -1035,6 +1035,8 @@ Now inside my `Details.js` component if ever there is an error I would like to c
 
 `ErrorBoundary` has to exist above it. It'll only catch things in components underneath it. So an easy way to do that is to use `Higher Order Components`
 
+`Higher Order Component`, It's a component that adds functionality, but doesn't add display. That's a higher order component. Which is just a fancy name for things that don't display
+
 Details.js
 
 ```js
@@ -1048,6 +1050,54 @@ class Details extends Component {
   
   redner() {
     // return some UI
+  }
+}
+```
+
+```js
+export default function DetailsWithErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <Details />
+    </ErrorBoundary>
+  )
+}
+```
+
+## Redirect on Error
+
+```js
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+class ErrorBoundary extends Component {
+  state = { hasError: false, redirect: false };
+  
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  
+  componentDidCatch(error, info) {
+    // I log this to sentry, Azure Monitor, New Relic, TrackJS
+    console.error('ErrorBoundary caught an error', error, info);
+  }
+  
+  componentDidUpdate() {
+    if (this.state.hasError) {
+      setTimeout(() => this.setState({ redirect: true }), 5000)
+    }
+  }
+  
+  render() {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    } else if (this.state.hasError) {
+      return (
+        <h1>This listing has an error <Link to="/">Click here</Link> to go back to the home page</h1>
+      )
+    }
+    
+    return this.props.children;
   }
 }
 ```
