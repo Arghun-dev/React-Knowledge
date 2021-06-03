@@ -994,3 +994,60 @@ It's basically gonna throw stronger errors at you, and it's gonna enforce more o
 There's bunch of methods here called like `UNSAFE_componentWillMount` and there's other kinds of things that they are deprecated, and they don't want you to use them. And `Strict Mode` basically doesn't allow you to use them.
 
 **is `stric mode` make my bundle size bigger?** The answer is no, It's just stripped out in production build.
+
+
+## Error Boundaries
+
+Frequently there's errors with APIs with malformatted or otherwise weird data. Let's be defensive about this, because we still want to use this API, but we can't control when we get errors. we're going to use a feature called `componentDidCatch` to handle this. this is something you can't do with `hooks`. so if you needed this sort of functionality. you'd have to use a `class` component.
+
+a component can only catch errors in its children. so that's important to keep in mind. it cannot catch it's own errors. Let's go make a wrapper to use on `Detail.js`. Make a new file called `ErrorBoundary.js`
+
+
+ErrorBoundary.js
+
+```js
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+class ErrorBoundary extends Component {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  componentDidCatch(error, info) {
+    // I log this to sentry, Azure Monitor, New Relic, TrackJS
+    console.error('ErrorBoundary caught an error', error, info);
+  }
+  
+  render() {
+    if (this.state.hasError) {
+      return (
+        <h1>This listing has an error <Link to="/">Click here</Link> to go back to the home page</h1>
+      )
+    }
+    
+    return this.props.children;
+  }
+}
+```
+
+Now inside my `Details.js` component if ever there is an error I would like to catch that error and we wanna do something about it.
+
+`ErrorBoundary` has to exist above it. It'll only catch things in components underneath it. So an easy way to do that is to use `Higher Order Components`
+
+Details.js
+
+```js
+import { Component } from 'react';
+import ErrorBoundary from './ErrorBoundary';
+
+class Details extends Component {
+  componentDidMount() {
+    // request to an api to get some data
+  }
+  
+  redner() {
+    // return some UI
+  }
+}
+```
