@@ -1096,3 +1096,13 @@ class ErrorBoundary extends Component {
   }
 }
 ```
+
+## CSS Children Selector
+
+to select all the children elements of css use this selector:
+
+```js
+.content > * {
+  ...
+}
+```
