@@ -1106,3 +1106,42 @@ to select all the children elements of css use this selector:
   ...
 }
 ```
+
+## React 18 Updates
+
+**1. Automatic Batching**
+
+Batching is React groups several state updates into single re-render for better performance.
+
+For example, if you have two state updates inside of the same click event, React has always batched these into one re-render. If you run the following code, you’ll see that every time you click, React only performs a single render although you set the state twice:
+
+```js
+import { useState } from 'react';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [flag, setFlag] = useState(false);
+  
+  const handleClick = () => {
+    setCount(count + 1); // Does not re-render yet
+    setFlag(!flag); // Does not re-render yet
+    // React only one re-render compoent here
+  }
+}
+```
+
+**What if I don't want to batch?**
+
+in this case you will have to use `flushSync`
+
+```js
+const handleClick = () => {
+  flushSync(() => {
+    setCount(count + 1)
+  });
+  
+  flushSync(() => {
+    setFlag(!flag)
+  })
+}
+```
