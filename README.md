@@ -1145,3 +1145,41 @@ const handleClick = () => {
   })
 }
 ```
+
+**2. SSR Support for Suspense**
+
+**3. Transition**
+
+This is an incredible feature going to be released. It lets users solve the issue of frequent updates on large screens. For example, consider typing in an input field that filters a list of data. You need to store the value of the field in state so that you can filter the data and control the value of that input field. Your code may look something like this:
+
+```js
+// Update the input value and search results
+setSearchQuery(input);
+```
+
+Here, whenever the user types a character, we update the input value and use the new value to search the list and show the results. For large-screen updates, this can cause lag on the page while everything renders, making typing or other interactions feel slow and unresponsive. Even if the list is not too long, the list items themselves may be complex and different on every keystroke, and there may be no clear way to optimize their rendering.
+
+Conceptually, the issue is that there are two different updates that need to happen. The first update is an urgent update, to change the value of the input field and, potentially, some UI around it. The second is a less urgent update to show the results of the search.
+
+```js
+// Urgent: Show what was typed
+setInputValue(input);
+
+// Not urgent: Show the results
+setSearchQuery(input);
+```
+
+The new `startTransition` API solves this issue by giving you the ability to mark updates as “transitions”:
+
+```js
+import { startTransition } from 'react';
+
+// Urgent: Show what was typed
+setInputValue(input);
+
+// Mark any state updates inside as transitions
+startTransition(() => {
+  // Transition: Show the results
+  setSearchQuery(input);
+});
+```
