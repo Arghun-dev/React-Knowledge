@@ -1183,3 +1183,89 @@ startTransition(() => {
   setSearchQuery(input);
 });
 ```
+
+
+## Issue
+
+I recently hit an issue annoyed me so much. which made me to decide to migrate to linux from windows :))
+
+Problem: I tried to run an old react project which using some packages windows needs to install some build tools and so on... The error was:
+
+```js
+npm ERR! code 1
+npm ERR! path C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3
+npm ERR! command failed
+npm ERR! command C:\Windows\system32\cmd.exe /d /s /c node-pre-gyp install --fallback-to-build
+npm ERR! Failed to execute 'C:\Program Files\nodejs\node.exe C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\bin\node-gyp.js configure --fallback-to-build --module=C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3\lib\binding\node-v83-win32-x64\node_sqlite3.node --module_name=node_sqlite3 --module_path=C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3\lib\binding\node-v83-win32-x64 --napi_version=8 --node_abi_napi=napi --napi_build_version=0 --node_napi_label=node-v83 --msvs_version=2017' (1)       
+npm ERR! node-pre-gyp info it worked if it ends with ok
+npm ERR! node-pre-gyp info using node-pre-gyp@0.11.0
+npm ERR! node-pre-gyp info using node@14.17.1 | win32 | x64
+npm ERR! node-pre-gyp WARN Using request for node-pre-gyp https download
+npm ERR! node-pre-gyp info check checked for "C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3\lib\binding\node-v83-win32-x64\node_sqlite3.node" (not found)
+npm ERR! node-pre-gyp http GET https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v4.2.0/node-v83-win32-x64.tar.gz
+npm ERR! node-pre-gyp http 403 https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v4.2.0/node-v83-win32-x64.tar.gz
+npm ERR! node-pre-gyp WARN Tried to download(403): https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v4.2.0/node-v83-win32-x64.tar.gz
+npm ERR! node-pre-gyp WARN Pre-built binaries not found for sqlite3@4.2.0 and node@14.17.1 (node-v83 ABI, unknown) (falling back to source compile with node-gyp)
+npm ERR! node-pre-gyp http 403 status code downloading tarball https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v4.2.0/node-v83-win32-x64.tar.gz
+npm ERR! gyp info it worked if it ends with ok
+npm ERR! gyp info using node-gyp@7.1.2
+npm ERR! gyp info using node@14.17.1 | win32 | x64
+npm ERR! gyp info ok
+npm ERR! gyp info it worked if it ends with ok
+npm ERR! gyp info using node-gyp@7.1.2
+npm ERR! gyp info using node@14.17.1 | win32 | x64
+npm ERR! gyp info find Python using Python version 2.7.15 found at "C:\Users\KIAN\.windows-build-tools\python27\python.exe"
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! find VS msvs_version was set from command line or npm config
+npm ERR! gyp ERR! find VS - looking for Visual Studio version 2017
+npm ERR! gyp ERR! find VS VCINSTALLDIR not set, not running in VS Command Prompt
+npm ERR! gyp ERR! find VS checking VS2017 (15.9.28307.1525) found at:
+npm ERR! gyp ERR! find VS "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools"
+npm ERR! gyp ERR! find VS - found "Visual Studio C++ core features"
+npm ERR! gyp ERR! find VS - missing any VC++ toolset
+npm ERR! gyp ERR! find VS could not find a version of Visual Studio 2017 or newer to use
+npm ERR! gyp ERR! find VS looking for Visual Studio 2015
+npm ERR! gyp ERR! find VS - not found
+npm ERR! gyp ERR! find VS not looking for VS2013 as it is only supported up to Node.js 8
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! find VS valid versions for msvs_version:
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! find VS **************************************************************
+npm ERR! gyp ERR! find VS You need to install the latest version of Visual Studio
+npm ERR! gyp ERR! find VS including the "Desktop development with C++" workload.
+npm ERR! gyp ERR! find VS For more information consult the documentation at:
+npm ERR! gyp ERR! find VS https://github.com/nodejs/node-gyp#on-windows
+npm ERR! gyp ERR! find VS **************************************************************
+npm ERR! gyp ERR! find VS
+npm ERR! gyp ERR! configure error
+npm ERR! gyp ERR! stack Error: Could not find any Visual Studio installation to use
+npm ERR! gyp ERR! stack     at VisualStudioFinder.fail (C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+npm ERR! gyp ERR! stack     at C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:74:16
+npm ERR! gyp ERR! stack     at VisualStudioFinder.findVisualStudio2013 (C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:351:14)      
+npm ERR! gyp ERR! stack     at C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:70:14
+npm ERR! gyp ERR! stack     at C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:372:16
+npm ERR! gyp ERR! stack     at C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:54:7
+npm ERR! gyp ERR! stack     at C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:33:16
+npm ERR! gyp ERR! stack     at ChildProcess.exithandler (child_process.js:326:5)
+npm ERR! gyp ERR! stack     at ChildProcess.emit (events.js:375:28)
+npm ERR! gyp ERR! stack     at maybeClose (internal/child_process.js:1055:16)
+npm ERR! gyp ERR! System Windows_NT 10.0.19042
+npm ERR! gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\KIAN\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js" "configure" "--fallback-to-build" "--module=C:\\kian\\kian-web-mc\\kiandigital-web-mc\\node_modules\\sqlite3\\lib\\binding\\node-v83-win32-x64\\node_sqlite3.node" "--module_name=node_sqlite3" "--module_path=C:\\kian\\kian-web-mc\\kiandigital-web-mc\\node_modules\\sqlite3\\lib\\binding\\node-v83-win32-x64" "--napi_version=8" "--node_abi_napi=napi" "--napi_build_version=0" "--node_napi_label=node-v83" "--msvs_version=2017"
+npm ERR! gyp ERR! cwd C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3
+npm ERR! gyp ERR! node -v v14.17.1
+npm ERR! gyp ERR! node-gyp -v v7.1.2
+npm ERR! gyp ERR! not ok
+npm ERR! node-pre-gyp ERR! build error
+npm ERR! node-pre-gyp ERR! stack Error: Failed to execute 'C:\Program Files\nodejs\node.exe C:\Users\KIAN\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\bin\node-gyp.js configure --fallback-to-build --module=C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3\lib\binding\node-v83-win32-x64\node_sqlite3.node --module_name=node_sqlite3 --module_path=C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3\lib\binding\node-v83-win32-x64 --napi_version=8 --node_abi_napi=napi --napi_build_version=0 --node_napi_label=node-v83 
+--msvs_version=2017' (1)
+npm ERR! node-pre-gyp ERR! stack     at ChildProcess.<anonymous> (C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\node-pre-gyp\lib\util\compile.js:83:29)
+npm ERR! node-pre-gyp ERR! stack     at ChildProcess.emit (events.js:375:28)
+npm ERR! node-pre-gyp ERR! stack     at maybeClose (internal/child_process.js:1055:16)
+npm ERR! node-pre-gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:288:5)
+npm ERR! node-pre-gyp ERR! System Windows_NT 10.0.19042
+npm ERR! node-pre-gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\kian\\kian-web-mc\\kiandigital-web-mc\\node_modules\\node-pre-gyp\\bin\\node-pre-gyp" "install" "--fallback-to-build"
+npm ERR! node-pre-gyp ERR! cwd C:\kian\kian-web-mc\kiandigital-web-mc\node_modules\sqlite3
+npm ERR! node-pre-gyp ERR! node -v v14.17.1
+npm ERR! node-pre-gyp ERR! node-pre-gyp -v v0.11.0
+npm ERR! node-pre-gyp ERR! not ok
+```
