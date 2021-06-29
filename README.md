@@ -1269,3 +1269,12 @@ npm ERR! node-pre-gyp ERR! node -v v14.17.1
 npm ERR! node-pre-gyp ERR! node-pre-gyp -v v0.11.0
 npm ERR! node-pre-gyp ERR! not ok
 ```
+
+SOLUTION:
+
+```js
+> 1. `npm i -g rimraf`
+> 2. `npm i -D sqlite3`
+> 3. `rimraf node_modules`
+> 4. `npm i`
+`
