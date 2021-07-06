@@ -1327,30 +1327,63 @@ export default function ProductPage({ product }) {
 ```
 
 
-```js
-import React from 'react'
+## onChange Example
 
-export default function SignUpPage() {
-  const [state, setState] = React.useState({ username: '', email: '', password: '' });
-    
-  function handleSubmit(event) {   
+App.js
+```js
+import { useState } from "react";
+import Input from "./input";
+import "./styles.css";
+
+export default function App() {
+  const [formValues, setFormValues] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
+
+  function handleSubmit(event) {
     event.preventDefault();
-    validateForm(state);
-    signUpUser(state)
+    console.log(formValues);
   }
 
   function handleChange(event) {
-    const {name, value} = event.target;
-    setState({ ...state, [name]: value });
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
   }
-    
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="username" onChange={handleChange} />
-      <input name="email" onChange={handleChange} />
-      <input name="password" onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="App">
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "left"
+        }}
+      >
+        <Input name="username" handleChange={handleChange} type="text" />
+        <Input name="password" handleChange={handleChange} type="password" />
+        <Input name="email" handleChange={handleChange} type="email" />
+        <Input type="submit" />
+      </form>
+    </div>
   );
 }
+```
+
+input.js
+```js
+const Input = ({ name, handleChange, type }) => {
+  return (
+    <div style={{ marginBottom: 16 }}>
+      <label htmlFor={name} style={{ marginRight: 8 }}>
+        {name}
+      </label>
+      <input name={name} onChange={handleChange} id={name} type={type} />
+    </div>
+  );
+};
+
+export default Input;
 ```
