@@ -1387,3 +1387,21 @@ const Input = ({ name, handleChange, type }) => {
 
 export default Input;
 ```
+
+## Use prevState to change the state based on previous state
+
+```js
+const initialState = {
+  count: 0,
+  totalCount: 120
+}
+
+const [clapState, setClapState] = useState(initialState);
+
+const handleClapClick = () => {
+  setClapState(prevState => ({
+    count: prevState.count + 1,
+    totalCount: prevState.count + 1
+  }))
+}
+```
