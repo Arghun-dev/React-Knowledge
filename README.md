@@ -1428,6 +1428,10 @@ But, now if I use call the `fib` function inside `useMemo` with a dependency, it
 
 It is amazing yeah :)) So, the comoponent will be fast, even if i change the state for the `isGreen` it will not re-run the function of fib in every re-render.
 
+**This is amazing, but => Do not go and abuse to use it in everywhere. Because, what happens if later I start expecting this to re-render?, why is the fibonacci is not re-rendering? This makes no sense. The states updating, things are happening, why is that not re-rendering. And they have to go and track down => ohhh this person use useMemo here. That's why this is not re-rendering. You run into this new class of bugs, why is my state not changing when I expected to => It just, it's not obvious right?**
+
+So, have a performace problems first, before you solve a performance problems. 
+
 ```js
 import { useState, useMemo } from "react";
 
