@@ -1418,3 +1418,46 @@ useEffect(() => {
   ...
 })
 ```
+
+
+## useMemo
+
+you know every time I change a state in a component it's going to re-run all the functions inside of it. so, imagine every time I change the isGreen state, whole the component re-renders and it causes to fib function to re-run every time. And it makes the component slower.
+
+But, now if I use call the `fib` function inside `useMemo` with a dependency, it's going to re-run just when the dependency changes, not in every re-render of the component.
+
+It is amazing yeah :)) So, the comoponent will be fast, even if i change the state for the `isGreen` it will not re-run the function of fib in every re-render.
+
+```js
+import { useState, useMemo } from "react";
+
+const fibonacci = (n) => {
+  if (n <= 1) {
+    return 1;
+  }
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+const UseMemo = () => {
+  const [isGreen, setIsGreen] = useState(true);
+  const [num, setNum] = useState(26);
+
+  const fib = useMemo(() => fibonacci(num), [num]);
+
+  return (
+    <div>
+      <h3
+        onClick={() => setIsGreen(!isGreen)}
+        style={{ color: isGreen ? "green" : "red" }}
+      >
+        Header Color
+      </h3>
+      <button onClick={() => setNum(num + 1)}>+</button>
+      result: {fib}
+    </div>
+  );
+};
+
+export default UseMemo;
+```
