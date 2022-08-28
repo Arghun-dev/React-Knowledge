@@ -1432,6 +1432,10 @@ It is amazing yeah :)) So, the comoponent will be fast, even if i change the sta
 
 So, have a performace problems first, before you solve a performance problems. 
 
+Because, almost always you will solve a wrong problem, you're thinking this is gonna be a problem. But, you're creating a new problem for yourself.
+
+So, only use, useMemo whenever you have a performance problem.
+
 ```js
 import { useState, useMemo } from "react";
 
