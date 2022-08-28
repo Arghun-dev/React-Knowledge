@@ -1405,3 +1405,16 @@ const handleClapClick = () => {
   }))
 }
 ```
+
+
+## useEffect witout dependency
+
+If you write useEffect like this, without any dependency
+
+It's implicitly saying, run this whenever anything changes.
+
+```js
+useEffect(() => {
+  ...
+})
+```
