@@ -1469,3 +1469,8 @@ const UseMemo = () => {
 
 export default UseMemo;
 ```
+
+
+## postcss
+
+postcss is like babel, but for css. It takes one set of css and outputs other type of css.
