@@ -1474,3 +1474,8 @@ export default UseMemo;
 ## postcss
 
 postcss is like babel, but for css. It takes one set of css and outputs other type of css.
+
+
+## When and Where to setState
+
+In the case of something **doesn't** involve user interaction, you want to use **useEffect**, if it's something involves user interaction, you're gonna use **useCallback**
