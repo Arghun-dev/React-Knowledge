@@ -1482,3 +1482,8 @@ In the case of something **doesn't** involve user interaction, you want to use *
 
 
 - useEffect without dependency Array is going to call every single time whenever the component re-renders.
+
+
+## Easiest way to setup Husky and lint-staged
+
+`npx mrm@2 lint-staged`
