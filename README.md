@@ -1487,3 +1487,8 @@ In the case of something **doesn't** involve user interaction, you want to use *
 ## Easiest way to setup Husky and lint-staged
 
 `npx mrm@2 lint-staged`
+
+
+## conditional import
+
+![1688645856492](https://github.com/Arghun-dev/React-Knowledge/assets/53907570/b41dce57-246a-4883-b88c-dfe9f5ad516e)
